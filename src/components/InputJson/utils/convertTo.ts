@@ -1,9 +1,5 @@
 import { ItemType, Json } from '../types';
-import { toArray } from './toArray';
-import { toBoolean } from './toBoolean';
-import { toNumber } from './toNumber';
-import { toObject } from './toObject';
-import { toString } from './toString';
+import { toArray, toBoolean, toNumber, toObject, toString } from './converters';
 
 export function convertTo(value: Json, type: ItemType): Json {
   const formatter = {
