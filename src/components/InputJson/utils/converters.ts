@@ -53,7 +53,7 @@ export function toNumber(value: Json): number {
   }
 
   if (typeof value === 'string') {
-    return parseInt(value, 10);
+    return parseInt(value, 10) || 0;
   }
 
   if (typeof value === 'boolean') {
@@ -61,6 +61,15 @@ export function toNumber(value: Json): number {
   }
 
   return 0;
+}
+
+/**
+ * Converts to the Null type.
+ *
+ * @returns {null} - Resulted value.
+ */
+export function toNull(): null {
+  return null;
 }
 
 /**

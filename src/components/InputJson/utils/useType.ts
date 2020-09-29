@@ -12,6 +12,9 @@ export function useType(value: Json): ItemType {
       case typeof value === 'number':
         return ItemType.Number;
 
+      case value === null:
+        return ItemType.Null;
+
       case isArray(value):
         return ItemType.Array;
 
