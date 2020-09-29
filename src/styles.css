@@ -1,3 +1,70 @@
-.App {
-  font-family: sans-serif;
+.input-json {
+  display: block;
+  width: 100%;
+}
+
+.input-json__level-object {
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+
+.input-json__level-object::before {
+  content: '{';
+}
+
+.input-json__level-object::after {
+  display: block;
+  content: '}';
+}
+
+.input-json__level-object-content {
+  padding-left: 16px;
+}
+
+.input-json__level-object-item {
+  display: flex;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.input-json__level-object-key {
+  margin: 0;
+  padding: 4px;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+.input-json__level-object-key::after {
+  content: ':';
+}
+
+.input-json__level-object-value {
+  margin: 0;
+  padding: 4px;
+  flex-grow: 1;
+  flex-shrink: 0;
+}
+
+.input-json__input {
+  padding: 4px 8px;
+  background-color: #f0f0f0;
+  border: 0;
+  border-radius: 4px;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.input-json__select {
+  margin: 0 4px 0 0;
+  padding: 4px 8px;
+  background-color: #f0f0f0;
+  border: 0;
+  border-radius: 4px;
+  color: #3a3a3a;
+  font-weight: bold;
+  appearance: none;
+  -webkit-appearance: none;
 }

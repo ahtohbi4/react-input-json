@@ -1,14 +1,15 @@
 {
-    "include": [
-        "./src/*"
+  "compilerOptions": {
+    "declaration": true,
+    "esModuleInterop": true,
+    "jsx": "react",
+    "lib": [
+      "DOM",
+      "ESNext"
     ],
-    "compilerOptions": {
-        "strict": true,
-        "esModuleInterop": true,
-        "lib": [
-            "DOM",
-            "ESNext"
-        ],
-        "jsx": "react"
-    }
+    "outDir": "dist",
+    "strict": true
+  },
+  "exclude": ["dist/*"],
+  "include": ["src/*"]
 }
