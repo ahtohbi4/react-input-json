@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 
 import { Json } from '../types';
 
@@ -13,6 +13,18 @@ type ValueArrayProps = {
 
 export const ValueArray: React.FC<ValueArrayProps> = (props) => {
   const { value, onChange } = props;
+
+  const [newValue, setNewValue] = useState<Json>('');
+  const handleNewValueChange = useCallback((nextNewValue) => {
+    setNewValue(nextNewValue);
+  }, []);
+
+  const handleNewValueApply = useCallback(() => {
+    if (newValue !== '') {
+      onChange([...value, newValue]);
+      setNewValue('');
+    }
+  }, [newValue, value, onChange]);
 
   return (
     <ol className="input-json__level-array">
@@ -31,6 +43,19 @@ export const ValueArray: React.FC<ValueArrayProps> = (props) => {
           </li>
         );
       })}
+
+      <li
+        className="input-json__array-item"
+        style={{ background: 'rgba(0,0,0,0.1)' }}
+      >
+        <Level value={newValue} onChange={handleNewValueChange} />
+
+        <div>
+          <button type="button" onClick={handleNewValueApply}>
+            add
+          </button>
+        </div>
+      </li>
     </ol>
   );
 };

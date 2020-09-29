@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo } from 'react';
+import React, { useCallback } from 'react';
 
 import { Json } from '../types';
 import { convertTo, useType } from '../utils';
@@ -14,7 +14,6 @@ type LevelProps = {
 export const Level: React.FC<LevelProps> = (props) => {
   const { value, onChange } = props;
   const type = useType(value);
-  const convert = useMemo(() => (v: Json) => convertTo(v, type), [type]);
   const handleTypeChange = useCallback(
     (nextType) => {
       onChange(convertTo(value, nextType));

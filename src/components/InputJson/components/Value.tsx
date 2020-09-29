@@ -30,6 +30,10 @@ export const Value: React.FC<ValueProps> = (props) => {
     return <ValueObject value={value as JsonObject} onChange={onChange} />;
   }
 
+  if (type === ItemType.Null) {
+    return null;
+  }
+
   if (type === ItemType.Number) {
     return <ValueNumber value={value as number} onChange={onChange} />;
   }
