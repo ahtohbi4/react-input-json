@@ -1,1 +1,1 @@
-export { InputJson } from './InputJson';
+export { ReactInputJson } from './ReactInputJson';

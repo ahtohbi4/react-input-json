@@ -1,14 +1,11 @@
 import React, { useCallback } from 'react';
 
-import { Json } from '../types';
+import { ControlledFieldProps, Json } from '../types';
 import { toNumber } from '../utils';
 
-import '../styles.css';
+import '../../public/styles.css';
 
-type ValueNumberProps = {
-  value: number;
-  onChange(nextValue: Json): void;
-};
+interface ValueNumberProps extends ControlledFieldProps<number> {}
 
 export const ValueNumber: React.FC<ValueNumberProps> = (props) => {
   const { value, onChange } = props;
@@ -21,7 +18,7 @@ export const ValueNumber: React.FC<ValueNumberProps> = (props) => {
 
   return (
     <input
-      className="input-json__input"
+      className="rij__input"
       placeholder="value"
       value={value}
       onChange={handleChange}

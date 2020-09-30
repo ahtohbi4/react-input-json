@@ -1,14 +1,9 @@
 import React, { useCallback } from 'react';
 
-import { Json } from '../types';
+import { ControlledFieldProps, Json } from '../types';
 import { toBoolean } from '../utils';
 
-import '../styles.css';
-
-type ValueBooleanProps = {
-  value: boolean;
-  onChange(nextValue: Json): void;
-};
+interface ValueBooleanProps extends ControlledFieldProps<boolean> {}
 
 export const ValueBoolean: React.FC<ValueBooleanProps> = (props) => {
   const { value, onChange } = props;

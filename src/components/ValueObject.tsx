@@ -1,15 +1,11 @@
 import React, { useCallback } from 'react';
 
-import { Json, JsonObject } from '../types';
-
+import { ControlledFieldProps, JsonObject } from '../types';
 import { Pair } from './Pair';
 
-import '../styles.css';
+import '../../public/styles.css';
 
-type ValueObjectProps = {
-  value: JsonObject;
-  onChange(nextValue: Json): void;
-};
+interface ValueObjectProps extends ControlledFieldProps<JsonObject> {}
 
 export const ValueObject: React.FC<ValueObjectProps> = (props) => {
   const { value, onChange } = props;
@@ -23,8 +19,8 @@ export const ValueObject: React.FC<ValueObjectProps> = (props) => {
   );
 
   return (
-    <dl className="input-json__level-object">
-      <div className="input-json__level-object-content">
+    <dl className="rij-value-object">
+      <div className="rij-value-object__content">
         {Object.entries(value).map(([itemKey, itemValue], index) => {
           return (
             <Pair

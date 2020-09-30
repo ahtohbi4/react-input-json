@@ -1,16 +1,16 @@
 import React, { useCallback } from 'react';
 
-import { Level } from './components/Level';
+import { Level } from './components';
 import { Json } from './types';
 
-import './styles.css';
+import '../public/styles.css';
 
 type InputJsonProps = {
   value: Json;
   onChange(nextValue: Json): void;
 };
 
-export const InputJson: React.FC<InputJsonProps> = (props) => {
+export const ReactInputJson: React.FC<InputJsonProps> = (props) => {
   const { value, onChange } = props;
   const handleChange = useCallback(
     (nextValue) => {
@@ -20,10 +20,10 @@ export const InputJson: React.FC<InputJsonProps> = (props) => {
   );
 
   return (
-    <span className="input-json">
+    <span className="rij-container">
       <Level value={value} onChange={handleChange} />
     </span>
   );
 };
 
-InputJson.displayName = 'InputJson';
+ReactInputJson.displayName = 'ReactInputJson';

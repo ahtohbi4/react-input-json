@@ -10,7 +10,8 @@
     "react"
   ],
   "files": [
-    "dist/"
+    "dist/",
+    "public/"
   ],
   "main": "dist/index.js",
   "scripts": {

@@ -1,13 +1,10 @@
 import React, { useCallback } from 'react';
 
-import { ItemType } from '../types';
+import { ControlledFieldProps, ItemType } from '../types';
 
-import '../styles.css';
+import '../../public/styles.css';
 
-type SelectTypeProps = {
-  value: ItemType;
-  onChange(nextValue: ItemType): void;
-};
+interface SelectTypeProps extends ControlledFieldProps<ItemType> {}
 
 const typeNames = Object.keys(ItemType).filter(
   (k) => typeof ItemType[k as any] === 'number',
@@ -24,7 +21,7 @@ export const SelectType: React.FC<SelectTypeProps> = (props) => {
 
   return (
     <select
-      className="input-json__select"
+      className="rij__select"
       value={value}
       onChange={handleChange}
     >

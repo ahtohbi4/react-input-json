@@ -1,14 +1,11 @@
 import React, { useCallback } from 'react';
 
-import { Json } from '../types';
+import { ControlledFieldProps, Json } from '../types';
 import { toString } from '../utils';
 
-import '../styles.css';
+import '../../public/styles.css';
 
-type ValueStringProps = {
-  value: string;
-  onChange(nextValue: Json): void;
-};
+interface ValueStringProps extends ControlledFieldProps<string> {}
 
 export const ValueString: React.FC<ValueStringProps> = (props) => {
   const { value, onChange } = props;
@@ -21,7 +18,7 @@ export const ValueString: React.FC<ValueStringProps> = (props) => {
 
   return (
     <input
-      className="input-json__input"
+      className="rij__input"
       placeholder="value"
       value={value}
       onChange={handleChange}

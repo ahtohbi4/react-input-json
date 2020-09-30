@@ -1,28 +1,28 @@
-.input-json {
+.rij-container {
   display: block;
   width: 100%;
 }
 
-.input-json__level-object {
+.rij-value-object {
   display: inline;
   margin: 0;
   padding: 0;
 }
 
-.input-json__level-object::before {
+.rij-value-object::before {
   content: '{';
 }
 
-.input-json__level-object::after {
+.rij-value-object::after {
   display: block;
   content: '}';
 }
 
-.input-json__level-object-content {
+.rij-value-object__content {
   padding-left: 16px;
 }
 
-.input-json__level-object-item {
+.rij-value-object__pair {
   display: flex;
   width: 100%;
   margin: 0;
@@ -30,25 +30,25 @@
   flex-wrap: wrap;
 }
 
-.input-json__level-object-key {
+.rij-value-object__pair-key {
   margin: 0;
   padding: 4px;
   flex-grow: 0;
   flex-shrink: 0;
 }
 
-.input-json__level-object-key::after {
+.rij-value-object__pair-key::after {
   content: ':';
 }
 
-.input-json__level-object-value {
+.rij-value-object__pair-value {
   margin: 0;
   padding: 4px;
   flex-grow: 1;
   flex-shrink: 0;
 }
 
-.input-json__input {
+.rij__input {
   padding: 4px 8px;
   background-color: #f0f0f0;
   border: 0;
@@ -57,7 +57,7 @@
   -webkit-appearance: none;
 }
 
-.input-json__select {
+.rij__select {
   margin: 0 4px 0 0;
   padding: 4px 8px;
   background-color: #f0f0f0;

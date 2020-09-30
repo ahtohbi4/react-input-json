@@ -1,24 +1,20 @@
 import React from 'react';
 
-import { Json } from '../types';
-
+import { ControlledFieldProps, Json } from '../types';
 import { Level } from './Level';
 
-import '../styles.css';
+import '../../public/styles.css';
 
-type ValueArrayProps = {
-  value: Json[];
-  onChange(nextValue: Json): void;
-};
+interface ValueArrayProps extends ControlledFieldProps<Json[]> {}
 
 export const ValueArray: React.FC<ValueArrayProps> = (props) => {
   const { value, onChange } = props;
 
   return (
-    <ol className="input-json__level-array">
+    <ol className="rij-value-array">
       {(value as Json[]).map((item, index, arr) => {
         return (
-          <li className="input-json__array-item" key={index}>
+          <li className="rij-value-array__item" key={index}>
             <Level
               value={item}
               onChange={(nextValue) => {
