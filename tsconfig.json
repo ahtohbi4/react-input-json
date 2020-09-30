@@ -8,8 +8,9 @@
       "ESNext"
     ],
     "module": "ESNext",
-    "moduleResolution": "Node",
+    "moduleResolution": "node",
     "outDir": "dist",
+    "sourceMap": true,
     "strict": true
   },
   "exclude": ["dist/*"],
