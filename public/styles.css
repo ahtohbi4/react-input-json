@@ -47,9 +47,12 @@
 .rij-value-array__item::before,
 .rij-value-array__item-creator::before {
   display: inline-block;
-  min-width: 20px;
+  min-width: 24px;
+  padding-right: 4px;
+  box-sizing: border-box;
   color: #777;
   font-size: 11px;
+  text-align: right;
   counter-increment: index;
   content: counter(index) ".";
 }

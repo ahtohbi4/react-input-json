@@ -39,7 +39,7 @@ export const ValueArray: React.FC<ValueArrayProps> = (props) => {
         );
       })}
 
-      <li className="input-json__array-item-creator">
+      <li className="rij-value-array__item-creator">
         <Level value={addedValue} onChange={handleAddedValueChange} />
 
         <div>
