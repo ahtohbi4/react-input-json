@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 
 import { ControlledFieldProps, Json } from '../types';
 import { Level } from './Level';
@@ -9,6 +9,17 @@ interface ValueArrayProps extends ControlledFieldProps<Json[]> {}
 
 export const ValueArray: React.FC<ValueArrayProps> = (props) => {
   const { value, onChange } = props;
+
+  const [addedValue, setAddedValue] = useState<Json>('');
+  const handleAddedValueChange = useCallback((nextAddedValue) => {
+    setAddedValue(nextAddedValue);
+  }, []);
+  const handleApplyAddedValue = useCallback(() => {
+    if (addedValue !== '') {
+      onChange([...value, addedValue]);
+      setAddedValue('');
+    }
+  }, [addedValue, value, onChange]);
 
   return (
     <ol className="rij-value-array">
@@ -27,6 +38,16 @@ export const ValueArray: React.FC<ValueArrayProps> = (props) => {
           </li>
         );
       })}
+
+      <li className="input-json__array-item-creator">
+        <Level value={addedValue} onChange={handleAddedValueChange} />
+
+        <div>
+          <button type="button" onClick={handleApplyAddedValue}>
+            add
+          </button>
+        </div>
+      </li>
     </ol>
   );
 };
