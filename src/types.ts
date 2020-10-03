@@ -22,4 +22,6 @@ export type TypeChecker = (value: Json) => boolean;
 export interface ControlledFieldProps<T> {
   value: T;
   onChange: (nextValue: T) => void;
+
+  readOnly?: boolean;
 }

@@ -1,27 +1,14 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 
-import { Level } from './components';
-import { Json } from './types';
+import { Value } from './components';
+import { Json, ControlledFieldProps } from './types';
 
-import '../public/styles.css';
-
-type InputJsonProps = {
-  value: Json;
-  onChange(nextValue: Json): void;
-};
+interface InputJsonProps extends ControlledFieldProps<Json> {}
 
 export const ReactInputJson: React.FC<InputJsonProps> = (props) => {
-  const { value, onChange } = props;
-  const handleChange = useCallback(
-    (nextValue) => {
-      onChange(nextValue);
-    },
-    [onChange],
-  );
-
   return (
     <span className="rij-container">
-      <Level value={value} onChange={handleChange} />
+      <Value {...props} />
     </span>
   );
 };

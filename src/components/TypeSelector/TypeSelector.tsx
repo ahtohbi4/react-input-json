@@ -1,17 +1,15 @@
 import React, { useCallback } from 'react';
 
-import { ControlledFieldProps, ItemType } from '../types';
+import { ControlledFieldProps, ItemType } from '../../types';
 
-import '../../public/styles.css';
-
-interface SelectTypeProps extends ControlledFieldProps<ItemType> {}
+interface TypeSelectorProps extends ControlledFieldProps<ItemType> {}
 
 const typeNames = Object.keys(ItemType).filter(
   (k) => typeof ItemType[k as any] === 'number',
 );
 
-export const SelectType: React.FC<SelectTypeProps> = (props) => {
-  const { value, onChange } = props;
+export const TypeSelector: React.FC<TypeSelectorProps> = (props) => {
+  const { readOnly, value, onChange } = props;
   const handleChange = useCallback(
     ({ target: { value: nextValue } }) => {
       onChange(nextValue);
@@ -22,6 +20,7 @@ export const SelectType: React.FC<SelectTypeProps> = (props) => {
   return (
     <select
       className="rij__select"
+      disabled={readOnly}
       value={value}
       onChange={handleChange}
     >
@@ -36,4 +35,4 @@ export const SelectType: React.FC<SelectTypeProps> = (props) => {
   );
 };
 
-SelectType.displayName = 'SelectType';
+TypeSelector.displayName = 'TypeSelector';

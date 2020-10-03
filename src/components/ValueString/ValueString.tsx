@@ -1,14 +1,12 @@
 import React, { useCallback } from 'react';
 
-import { ControlledFieldProps, Json } from '../types';
-import { toString } from '../utils';
-
-import '../../public/styles.css';
+import { ControlledFieldProps } from '../../types';
+import { toString } from '../../utils';
 
 interface ValueStringProps extends ControlledFieldProps<string> {}
 
 export const ValueString: React.FC<ValueStringProps> = (props) => {
-  const { value, onChange } = props;
+  const { readOnly, value, onChange } = props;
   const handleChange = useCallback(
     ({ target: { value: nextValue } }) => {
       onChange(toString(nextValue));
@@ -20,6 +18,7 @@ export const ValueString: React.FC<ValueStringProps> = (props) => {
     <input
       className="rij__input"
       placeholder="value"
+      readOnly={readOnly}
       value={value}
       onChange={handleChange}
     />

@@ -1,0 +1,1 @@
+export { ValueObject } from './ValueObject';

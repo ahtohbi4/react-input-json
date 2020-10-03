@@ -24,7 +24,6 @@
   display: contents;
   margin: 0;
   padding: 0;
-  counter-reset: index;
 }
 
 .rij-value-array::before {
@@ -39,25 +38,12 @@
 .rij-value-array__item,
 .rij-value-array__item-creator {
   display: block;
-  margin: 0;
-  padding: 0;
+  margin: 0 0 0 24px;
+  padding: 4px 0;
   list-style: none;
 }
 
-.rij-value-array__item::before,
-.rij-value-array__item-creator::before {
-  display: inline-block;
-  min-width: 24px;
-  padding-right: 4px;
-  box-sizing: border-box;
-  color: #777;
-  font-size: 11px;
-  text-align: right;
-  counter-increment: index;
-  content: counter(index) ".";
-}
-
-.rij-value-array__item-creator {
+.rij-value-array__item-creator-form {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
@@ -88,14 +74,14 @@
   flex-wrap: wrap;
 }
 
-.rij-value-object__pair-key {
+.rij-value-object__pair-name {
   margin: 0;
   padding: 4px;
   flex-grow: 0;
   flex-shrink: 0;
 }
 
-.rij-value-object__pair-key::after {
+.rij-value-object__pair-name::after {
   content: ':';
 }
 
