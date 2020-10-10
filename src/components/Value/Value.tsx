@@ -13,10 +13,12 @@ import {
   ValueString,
 } from '../';
 
-interface ValueProps extends ControlledFieldProps<Json> {}
+interface ValueProps extends ControlledFieldProps<Json> {
+  id?: string;
+}
 
 export const Value: React.FC<ValueProps> = (props) => {
-  const { value, ...restProps } = props;
+  const { id, value, ...restProps } = props;
   const { readOnly, onChange } = restProps;
 
   const type = useType(value);
@@ -49,6 +51,7 @@ export const Value: React.FC<ValueProps> = (props) => {
   return (
     <>
       <TypeSelector
+        id={id}
         readOnly={readOnly}
         value={type}
         onChange={handleTypeChange}

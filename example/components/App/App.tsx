@@ -18,7 +18,9 @@ export const App = () => {
 
       <h2>ReactInputJson</h2>
 
-      <ReactInputJson readOnly value={value} onChange={handleChange} />
+      <label htmlFor="config">Config:</label>
+
+      <ReactInputJson id="config" value={value} onChange={handleChange} />
 
       <h2>Result value</h2>
 
