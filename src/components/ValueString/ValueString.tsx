@@ -1,12 +1,15 @@
 import React, { useCallback } from 'react';
 
-import { ControlledFieldProps } from '../../types';
+import { ClassNames, ControlledFieldProps } from '../../types';
 import { toString } from '../../utils';
+import { Input } from '../';
 
-interface ValueStringProps extends ControlledFieldProps<string> {}
+interface ValueStringProps extends ControlledFieldProps<string> {
+  classes?: ClassNames;
+}
 
 export const ValueString: React.FC<ValueStringProps> = (props) => {
-  const { readOnly, value, onChange } = props;
+  const { classes, readOnly, value, onChange } = props;
   const handleChange = useCallback(
     ({ target: { value: nextValue } }) => {
       onChange(toString(nextValue));
@@ -15,8 +18,8 @@ export const ValueString: React.FC<ValueStringProps> = (props) => {
   );
 
   return (
-    <input
-      className="rij__input"
+    <Input
+      className={classes?.input}
       placeholder="value"
       readOnly={readOnly}
       value={value}

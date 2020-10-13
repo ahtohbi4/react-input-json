@@ -1,13 +1,18 @@
 import React, { useCallback } from 'react';
 
-import { ControlledFieldProps, JsonObject } from '../../types';
-import { ObjectPair } from './ObjectPair';
-import { ObjectPairCreator } from './ObjectPairCreator';
+import { ClassNames, ControlledFieldProps, JsonObject } from '../../types';
+import { classNames } from '../../utils';
+import { Pair } from './Pair';
+import { PairCreator } from './PairCreator';
 
-interface ValueObjectProps extends ControlledFieldProps<JsonObject> {}
+import styles from './ValueObject.css';
+
+interface ValueObjectProps extends ControlledFieldProps<JsonObject> {
+  classes?: ClassNames;
+}
 
 export const ValueObject: React.FC<ValueObjectProps> = (props) => {
-  const { readOnly, value, onChange } = props;
+  const { classes, readOnly, value, onChange } = props;
 
   const handlePairChange = useCallback(
     (nextName, nextValue, prevName) => {
@@ -26,11 +31,16 @@ export const ValueObject: React.FC<ValueObjectProps> = (props) => {
   );
 
   return (
-    <dl className="rij-value-object">
-      <div className="rij-value-object__content">
+    <dl
+      className={classNames(styles.container, classes?.valueObject?.container)}
+    >
+      <div
+        className={classNames(styles.content, classes?.valueObject?.content)}
+      >
         {Object.entries(value).map(([itemKey, itemValue], index) => {
           return (
-            <ObjectPair
+            <Pair
+              classes={classes}
               key={index}
               name={itemKey}
               readOnly={readOnly}
@@ -40,7 +50,9 @@ export const ValueObject: React.FC<ValueObjectProps> = (props) => {
           );
         })}
 
-        {readOnly ? null : <ObjectPairCreator onCreate={handlePairCreate} />}
+        {readOnly ? null : (
+          <PairCreator classes={classes} onCreate={handlePairCreate} />
+        )}
       </div>
     </dl>
   );

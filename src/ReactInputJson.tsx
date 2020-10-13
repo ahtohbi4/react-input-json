@@ -1,17 +1,20 @@
 import React from 'react';
 
-import { Value } from './components';
-import { Json, ControlledFieldProps } from './types';
+import { Root, Value } from './components';
+import { Json, ClassNames, ControlledFieldProps } from './types';
 
-interface InputJsonProps extends ControlledFieldProps<Json> {
+interface ReactInputJsonProps extends ControlledFieldProps<Json> {
+  classes?: ClassNames;
   id?: string;
 }
 
-export const ReactInputJson: React.FC<InputJsonProps> = (props) => {
+export const ReactInputJson: React.FC<ReactInputJsonProps> = (props) => {
+  const { classes } = props;
+
   return (
-    <span className="rij-container">
+    <Root className={classes?.root}>
       <Value {...props} />
-    </span>
+    </Root>
   );
 };
 

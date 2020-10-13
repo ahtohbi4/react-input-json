@@ -1,6 +1,5 @@
 import React, { useCallback, useState } from 'react';
 import { ReactInputJson } from '../../../src';
-import '../../../public/styles.css';
 
 import { Console } from '../Console';
 

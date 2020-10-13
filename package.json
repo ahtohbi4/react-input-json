@@ -9,16 +9,12 @@
     "json",
     "react"
   ],
-  "files": [
-    "dist/",
-    "public/"
-  ],
+  "files": ["dist/"],
   "main": "dist/index.js",
   "scripts": {
-    "build": "npx tsc",
-    "prebuild": "rm -rf dist",
+    "build": "webpack --config webpack.prod.js --hide-modules --progress",
     "prepublishOnly": "npm run build && git push && git push --tags",
-    "start": "webpack-dev-server --config webpack.config.js"
+    "start": "webpack-dev-server --config webpack.dev.js"
   },
   "author": {
     "name": "Alexandr Antonov",
@@ -44,14 +40,18 @@
     "@types/react": "^16.9.49",
     "@types/react-dom": "^16.9.8",
     "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^4.3.0",
     "html-webpack-plugin": "^4.5.0",
+    "mini-css-extract-plugin": "^1.0.0",
     "prettier": "^2.1.2",
     "style-loader": "^1.2.1",
+    "terser-webpack-plugin": "^4.2.3",
     "typescript": "^4.0.3",
     "webpack": "^4.44.2",
     "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.0"
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^5.2.0"
   },
   "browserslist": [
     ">0.2%",

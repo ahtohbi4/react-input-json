@@ -1,0 +1,22 @@
+.container {
+  display: block;
+  width: 100%;
+  color: inherit;
+  font-family:
+    'SF Pro Display',
+    BlinkMacSystemFont,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Open Sans',
+    'Helvetica Neue',
+    'Roboto Rouble',
+    sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 18px;
+  -webkit-font-smoothing: antialiased;
+}

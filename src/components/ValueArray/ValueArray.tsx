@@ -1,14 +1,19 @@
 import React, { useCallback } from 'react';
 
-import { ControlledFieldProps, Json } from '../../types';
+import { ClassNames, ControlledFieldProps, Json } from '../../types';
+import { classNames } from '../../utils';
 
-import { ArrayItem } from './ArrayItem';
-import { ArrayItemCreator } from './ArrayItemCreator';
+import { Item } from './Item';
+import { ItemCreator } from './ItemCreator';
 
-interface ValueArrayProps extends ControlledFieldProps<Json[]> {}
+import styles from './ValueArray.css';
+
+interface ValueArrayProps extends ControlledFieldProps<Json[]> {
+  classes?: ClassNames;
+}
 
 export const ValueArray: React.FC<ValueArrayProps> = (props) => {
-  const { readOnly, value, onChange } = props;
+  const { classes, readOnly, value, onChange } = props;
 
   const handleChangeItem = useCallback(
     (index, nextItemValue) => {
@@ -28,10 +33,13 @@ export const ValueArray: React.FC<ValueArrayProps> = (props) => {
   );
 
   return (
-    <ol className="rij-value-array">
+    <ol
+      className={classNames(styles.container, classes?.valueArray?.container)}
+    >
       {(value as Json[]).map((itemValue, index) => {
         return (
-          <ArrayItem
+          <Item
+            classes={classes}
             index={index}
             key={index}
             readOnly={readOnly}
@@ -42,9 +50,7 @@ export const ValueArray: React.FC<ValueArrayProps> = (props) => {
       })}
 
       {readOnly ? null : (
-        <li className="rij-value-array__item-creator">
-          <ArrayItemCreator onCreate={handleItemCreate} />
-        </li>
+        <ItemCreator classes={classes} onCreate={handleItemCreate} />
       )}
     </ol>
   );

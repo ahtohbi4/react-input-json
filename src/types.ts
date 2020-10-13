@@ -25,3 +25,23 @@ export interface ControlledFieldProps<T> {
 
   readOnly?: boolean;
 }
+
+export interface ClassNames {
+  button?: string;
+  input?: string;
+  root?: string;
+  typeSelector?: string;
+  valueArray?: {
+    container?: string;
+    item?: string;
+    itemCreator?: string;
+    itemCreatorForm?: string;
+  };
+  valueObject?: {
+    container?: string;
+    content?: string;
+    pair?: string;
+    pairName?: string;
+    pairValue?: string;
+  };
+}

@@ -1,8 +1,12 @@
 import React, { useCallback } from 'react';
 
 import { ControlledFieldProps, ItemType } from '../../types';
+import { classNames } from '../../utils';
+
+import styles from './TypeSelector.css';
 
 interface TypeSelectorProps extends ControlledFieldProps<ItemType> {
+  className?: string;
   id?: string;
 }
 
@@ -11,7 +15,7 @@ const typeNames = Object.keys(ItemType).filter(
 );
 
 export const TypeSelector: React.FC<TypeSelectorProps> = (props) => {
-  const { id, readOnly, value, onChange } = props;
+  const { className, id, readOnly, value, onChange } = props;
   const handleChange = useCallback(
     ({ target: { value: nextValue } }) => {
       onChange(nextValue);
@@ -21,7 +25,7 @@ export const TypeSelector: React.FC<TypeSelectorProps> = (props) => {
 
   return (
     <select
-      className="rij__select"
+      className={classNames(styles.container, className)}
       id={id}
       disabled={readOnly}
       value={value}

@@ -1,16 +1,19 @@
 import React, { useCallback, useState } from 'react';
 
-import { Json, JsonObject } from '../../types';
-import { ObjectPair } from './ObjectPair';
+import { ClassNames, Json, JsonObject } from '../../types';
+import { Button } from '../';
+import { Pair } from './Pair';
 
 const DEFAULT_PAIR: [string, Json] = ['', ''];
 
-interface ObjectPairCreatorProps {
+interface PairCreatorProps {
   onCreate: (nextPair: JsonObject) => void;
+
+  classes?: ClassNames;
 }
 
-export const ObjectPairCreator: React.FC<ObjectPairCreatorProps> = (props) => {
-  const { onCreate } = props;
+export const PairCreator: React.FC<PairCreatorProps> = (props) => {
+  const { classes, onCreate } = props;
 
   const [isActive, setIsActive] = useState(false);
   const handleActivate = useCallback(() => {
@@ -30,22 +33,27 @@ export const ObjectPairCreator: React.FC<ObjectPairCreatorProps> = (props) => {
   if (isActive) {
     return (
       <>
-        <ObjectPair name={name} value={value} onChange={handleChange} />
+        <Pair
+          classes={classes}
+          name={name}
+          value={value}
+          onChange={handleChange}
+        />
 
         <div>
-          <button type="button" onClick={handleApply}>
+          <Button className={classes?.button} onClick={handleApply}>
             Apply
-          </button>
+          </Button>
         </div>
       </>
     );
   }
 
   return (
-    <button type="button" onClick={handleActivate}>
+    <Button className={classes?.button} onClick={handleActivate}>
       Add
-    </button>
+    </Button>
   );
 };
 
-ObjectPairCreator.displayName = 'ObjectPairCreator';
+PairCreator.displayName = 'ValueObject.PairCreator';

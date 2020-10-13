@@ -1,0 +1,14 @@
+.container {
+  display: contents;
+  margin: 0;
+  padding: 0;
+}
+
+.container::before {
+  content: '[';
+}
+
+.container::after {
+  display: block;
+  content: ']';
+}

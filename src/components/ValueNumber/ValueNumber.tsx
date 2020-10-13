@@ -1,12 +1,15 @@
 import React, { useCallback } from 'react';
 
-import { ControlledFieldProps } from '../../types';
+import { ClassNames, ControlledFieldProps } from '../../types';
 import { toNumber } from '../../utils';
+import { Input } from '../';
 
-interface ValueNumberProps extends ControlledFieldProps<number> {}
+interface ValueNumberProps extends ControlledFieldProps<number> {
+  classes?: ClassNames;
+}
 
 export const ValueNumber: React.FC<ValueNumberProps> = (props) => {
-  const { readOnly, value, onChange } = props;
+  const { classes, readOnly, value, onChange } = props;
   const handleChange = useCallback(
     ({ target: { value: nextValue } }) => {
       onChange(toNumber(nextValue));
@@ -15,8 +18,8 @@ export const ValueNumber: React.FC<ValueNumberProps> = (props) => {
   );
 
   return (
-    <input
-      className="rij__input"
+    <Input
+      className={classes?.input}
       placeholder="value"
       readOnly={readOnly}
       value={value}

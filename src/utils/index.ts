@@ -1,3 +1,5 @@
+export * from './classNames';
+
 export * from './converters';
 export * from './convertTo';
 

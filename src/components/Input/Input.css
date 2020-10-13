@@ -1,0 +1,26 @@
+.input {
+  padding: 4px 8px;
+  background-color: #f0f0f0;
+  border: 0;
+  border-radius: 2px;
+  color: #3a3a3a;
+  font: inherit;
+  font-weight: bold;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  transition-duration: 0.15s;
+  transition-property: box-shadow;
+  transition-timing-function: ease-in-out;
+}
+
+.input::placeholder {
+  color: #3a3a3a;
+  font-style: italic;
+  font-weight: 300;
+}
+
+.input:focus {
+  box-shadow: 0 0 0 3px rgba(30, 144, 255, 0.5);
+  outline: 0;
+}

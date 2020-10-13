@@ -1,6 +1,12 @@
 import React, { useCallback, useMemo } from 'react';
 
-import { ControlledFieldProps, ItemType, Json, JsonObject } from '../../types';
+import {
+  ClassNames,
+  ControlledFieldProps,
+  ItemType,
+  Json,
+  JsonObject,
+} from '../../types';
 import { convertTo, useType } from '../../utils';
 
 import {
@@ -14,12 +20,13 @@ import {
 } from '../';
 
 interface ValueProps extends ControlledFieldProps<Json> {
+  classes?: ClassNames;
   id?: string;
 }
 
 export const Value: React.FC<ValueProps> = (props) => {
   const { id, value, ...restProps } = props;
-  const { readOnly, onChange } = restProps;
+  const { classes, readOnly, onChange } = restProps;
 
   const type = useType(value);
 
@@ -51,6 +58,7 @@ export const Value: React.FC<ValueProps> = (props) => {
   return (
     <>
       <TypeSelector
+        className={classes?.typeSelector}
         id={id}
         readOnly={readOnly}
         value={type}
