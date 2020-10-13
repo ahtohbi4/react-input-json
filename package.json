@@ -1,6 +1,6 @@
 {
   "name": "react-input-json",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "",
   "keywords": [
     "field",
@@ -9,7 +9,9 @@
     "json",
     "react"
   ],
-  "files": ["dist/"],
+  "files": [
+    "dist/"
+  ],
   "main": "dist/index.js",
   "scripts": {
     "build": "webpack --config webpack.prod.js --hide-modules --progress",
