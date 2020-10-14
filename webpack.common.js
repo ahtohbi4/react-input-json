@@ -1,4 +1,3 @@
-const loaderUtils = require('loader-utils');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 

@@ -11,7 +11,8 @@ module.exports = merge(common, {
   entry: path.join(__dirname, 'src/index.ts'),
 
   externals: {
-    react: 'react',
+    react: 'React',
+    'react-dom': 'ReactDOM',
   },
 
   mode: 'production',
