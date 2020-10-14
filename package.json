@@ -1,6 +1,6 @@
 {
   "name": "react-input-json",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "description": "React component to input custom JSON",
   "keywords": [
     "field",
