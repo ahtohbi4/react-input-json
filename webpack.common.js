@@ -3,9 +3,10 @@ const path = require('path');
 
 module.exports = {
   output: {
-    publicPath: '/',
     filename: 'index.js?hash=[hash]',
     path: path.join(__dirname, 'dist'),
+    publicPath: '/',
+    libraryTarget: 'umd',
   },
 
   resolve: {
