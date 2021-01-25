@@ -25,6 +25,16 @@ export const ValueArray: React.FC<ValueArrayProps> = (props) => {
     [value, onChange],
   );
 
+  const handleDeleteItem = useCallback(
+    (index) => {
+      const leftPart = value.slice(0, index);
+      const rightPart = value.slice(index + 1)
+
+      onChange([...leftPart, ...rightPart])
+    },
+    [value, onChange]
+  )
+
   const handleItemCreate = useCallback(
     (newValue) => {
       onChange([...value, newValue]);
@@ -45,6 +55,7 @@ export const ValueArray: React.FC<ValueArrayProps> = (props) => {
             readOnly={readOnly}
             value={itemValue}
             onChange={handleChangeItem}
+            onDelete={handleDeleteItem}
           />
         );
       })}
