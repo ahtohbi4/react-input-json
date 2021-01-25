@@ -1,4 +1,5 @@
 export * from './Button';
+export * from './ButtonDelete'
 export * from './Input';
 export * from './Root';
 export * from './TypeSelector';

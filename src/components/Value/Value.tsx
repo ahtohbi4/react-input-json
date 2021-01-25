@@ -10,6 +10,7 @@ import {
 import { convertTo, useType } from '../../utils';
 
 import {
+  ButtonDelete,
   TypeSelector,
   ValueArray,
   ValueBoolean,
@@ -22,10 +23,11 @@ import {
 interface ValueProps extends ControlledFieldProps<Json> {
   classes?: ClassNames;
   id?: string;
+  onDelete?: () => void;
 }
 
 export const Value: React.FC<ValueProps> = (props) => {
-  const { id, value, ...restProps } = props;
+  const { id, value, onDelete, ...restProps } = props;
   const { classes, readOnly, onChange } = restProps;
 
   const type = useType(value);
@@ -55,6 +57,13 @@ export const Value: React.FC<ValueProps> = (props) => {
     [value, onChange],
   );
 
+  const handleDelete = useCallback(
+    () => {
+      onDelete?.()
+    },
+    [onDelete]
+  );
+
   return (
     <>
       <TypeSelector
@@ -66,6 +75,13 @@ export const Value: React.FC<ValueProps> = (props) => {
       />
 
       {valueType}
+
+      {props.onDelete !== undefined && (
+        <ButtonDelete
+          className={classes?.buttonDelete}
+          onClick={handleDelete}
+        />
+      )}
     </>
   );
 };

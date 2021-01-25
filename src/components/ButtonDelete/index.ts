@@ -1,0 +1,1 @@
+export { ButtonDelete } from './ButtonDelete';

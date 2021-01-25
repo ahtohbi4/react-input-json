@@ -28,6 +28,7 @@ export interface ControlledFieldProps<T> {
 
 export interface ClassNames {
   button?: string;
+  buttonDelete?: string;
   input?: string;
   root?: string;
   typeSelector?: string;
